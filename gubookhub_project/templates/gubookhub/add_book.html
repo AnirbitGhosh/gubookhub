@@ -1,0 +1,44 @@
+{% extends 'gubookhub/base.html' %}
+{% load staticfiles %}
+{% load widget_tweaks %} 
+
+{% block title_block %}
+    Add a Book
+{% endblock %}
+
+{% block style_block %}
+<link rel="stylesheet" href="{% static 'css/addbook.css' %}" type="text/css" />
+{% endblock %}
+
+
+{% block body_block %}
+<div class="jumbotron p-4">
+	<div class="container">
+		<h1 class="jumbotron-heading">Add a Book</h1>
+    </div>
+</div>
+
+<div class="container">
+  <div class="p-2 py-2">
+    <div class="justify-content-between align-items-center mb-5">
+      <div class="form-group">
+        <form id="book_form" method="post" action="{% url 'gubookhub_app:add_book' %}">
+          {% csrf_token %}
+          {% for hidden in form.hidden_fields %}
+            <p>{% render_field hidden class="form-control" %}</p>
+          {% endfor %}
+          {% for field in form.visible_fields %}
+          <div class="form-group">
+            <label class="control-label">{{ field.help_text }}</label>
+            <p class="input">{% render_field field class="form-control" %}</p>
+            <span class="help-block">{{ field.errors }}</span>
+          </div>
+          {% endfor %}
+          <input class="btn btn-lg btn-danger btn-block" type="submit" name="submit" value="Create Book" />
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

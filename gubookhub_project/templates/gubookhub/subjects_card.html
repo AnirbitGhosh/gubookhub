@@ -1,0 +1,76 @@
+{% load staticfiles %}
+
+<!-- {% for subject_subarray in subjects_output %}
+<div class="card-deck">
+  {% for subject in subject_subarray %}
+  <div class="card">
+    <img height="125" width="100" class="card-img-top" src="{% static 'subject_images/' %}{{ subject.name }}" alt="Subject Image">
+    <div class="card-body">
+      <a href="{% url 'gubookhub_app:subject' subject.slug %}"><h5 class="card-title">{{ subject.name }}</h5></a>
+      <a href="#" class="btn btn-secondary">More Info</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %} -->
+
+{% for subject_subarray in subjects_output %}
+<div class="card-deck">
+  {% for subject in subject_subarray %}
+  <div class="card">
+    <img height="125" width="100" class="card-img-top" src="{% static 'subject_images/' %}{{ subject.name }}" alt="Subject Image">
+    <div class="card-body">
+      <a href="{% url 'gubookhub_app:subject' subject.slug %}"><h5 class="card-title">{{ subject.name }}</h5></a>
+      <a href="#" id="info-btn" data-subject="{{ subject.slug }}" class="btn-subject-info btn btn-info btn-sm" data-toggle="modal" data-target="#{{ subject.slug }}-modal">Info <span data-feather="info"></span></a>
+    </div>
+  </div>
+
+  <div class="modal fade" id="{{ subject.slug }}-modal" tabindex="-1" aria-labelledby="{{ subject.slug }}-modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="{{ subject.slug }}-modal-label">{{ subject.name }}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <ul>
+              <li><h3 id="{{ subject.slug }}-no-courses" class="display-6"></h1></li>
+              <li><h3 id="{{ subject.slug }}-no-books" class="display-6"></h1></li>
+                <li><h3 id="{{ subject.slug }}-no-awards" class="display-6"></h1></li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{ subject.name }} contains 5 books.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+

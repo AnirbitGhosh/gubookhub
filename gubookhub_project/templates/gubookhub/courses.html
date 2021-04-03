@@ -1,0 +1,19 @@
+<!-- NOTE THAT THIS TEMPLATE IS DIFFERENT FROM course.html !!!!!!!!!!!!!!!  -->
+
+{% load template_tags %}
+
+
+<p class="card-text">
+    {% if courses %}
+<ul class="list-group">
+    {% for course in courses %}
+    <li class="list-group-item">
+        <a href="{% url 'gubookhub_app:course' course.subject.slug course.title %}">
+            {{ course.title }}</a> <span class="badge badge-primary badge-pill">{{ number_of_books|get_item:course }}</span>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<strong>There are no subjects present.</strong>
+{% endif %}
+</p>

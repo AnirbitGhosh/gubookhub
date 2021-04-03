@@ -1,0 +1,26 @@
+h1 {
+    font-size: 45pt;
+    font-weight: bold;
+    color: black; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2{
+    font-size: 24pt;
+    color: black;
+    font-weight: bold;
+    font-family: serif
+
+}
+
+.card.mb-2{
+    background-color: rgba(231, 76, 65, 0.377);
+}
+
+.list-group-item{
+    background-color: rgb(215, 238, 247);
+    font-size: 15pt;
+    color: black;
+    font-weight: 100;
+    font-family:sans-serif;
+}

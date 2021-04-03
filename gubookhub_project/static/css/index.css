@@ -1,0 +1,82 @@
+/* top header of page */
+h1 {
+    font-size: 45pt;
+    font-weight: bold;
+    color: black; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/* sub header */
+h2{
+    font-size: 24pt;
+    color:black;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    
+}
+
+/* outer box */
+.card.mb-6{
+    background-color: rgba(231, 76, 65, 0.486);
+}
+
+/* outer box text */
+.h2{
+    font-size: 24pt;
+    color: black;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
+}
+
+/* h5 headers, login message */
+.h5{
+    font-size: 15pt;
+    text-align:center;
+    color: darkred;
+    font-weight: 100;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+/* items in list */
+.list-group-item{
+    background-color: rgb(215, 238, 247);
+    font-size: 15pt;
+    color: black;
+    font-weight: 100;
+    font-family:sans-serif;
+}
+
+#uofg-background {
+    width: 100%;
+    z-index: 0;
+    opacity: 95%;
+  }
+
+.img-container {
+position: relative;
+text-align: center;
+color: white;
+}
+
+.centered {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+#title {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px rgb(88, 13, 13);
+}
+
+.card-columns {
+    @include media-breakpoint-only(lg) {
+        column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+        column-count: 5;
+    }
+}
+  

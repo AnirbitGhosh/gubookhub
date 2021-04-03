@@ -1,0 +1,63 @@
+{% extends 'gubookhub/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+Search Books
+{% endblock %}
+
+
+{% block style_block %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}" type="text/css" />
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Search Books</h1>
+    </div>
+</div>
+
+<div>
+    <form class="form-inline" id="search-form" method="POST" action="{% url 'gubookhub_app:search' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <input class="form-control" type="text" size="50" name="query" id="query" value="{{ query }}" />
+        </div>
+
+        <button class="btn btn-danger" type="submit" name="submit">Search</button>
+    </form>
+</div>
+
+<div>
+    {% if results %}
+    <h2>Results:</h2>
+
+    <div class="card-columns">
+        {% for result in results %}
+
+        <div class="card" style="width: 25rem;">
+            <img class="card-img-top" src="{{ result.imageLinks.thumbnail }}" alt="Book thumbnail">
+            <div class="card-body">
+                <h3 class="card-title">{{ result.title }}</h3>
+                <h5 class="card-title">by {{ result.authors.0 }}</h5>
+                {% if result.description %}
+                <p id="book-description" class="card-text">{{ result.description|slice:"0:300" }}...</p>
+                {% else %}
+                <p id="book-description" class="card-text">No description available.</p>
+                {% endif %}
+                <a href="{{ result.previewLink }}" class="btn btn-primary">Google Books</a>
+            </div>
+        </div>
+
+        <!-- <div class="list-group-item">
+                    <h3 class="list-group-item-heading">
+                        <p class="list-group-item"> {{ result.title }} by {{ result.authors }}</p>
+                        <img src="{{ result.imageLinks.smallThumbnail }}" alt="">
+                    </h3>
+                </div> -->
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

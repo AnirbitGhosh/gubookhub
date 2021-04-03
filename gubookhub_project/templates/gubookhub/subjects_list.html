@@ -1,0 +1,25 @@
+<!-- NOTE THAT THIS TEMPLATE IS DIFFERENT FROM subject.html !!!!!!!!!!!!!!!  -->
+
+<ul class="nav flex-column">
+    {% if subjects %}
+        {% for subject in subjects %}
+            {% if subject == current_subject %}
+                <li class="nav-item">
+                    <strong>
+                        <a class="nav-link active" href="{% url 'gubookhub_app:subject' subject.slug %}">
+                            <span data-feather="book-open"></span>{{ subject.name }}
+                        </a>
+                    </strong>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'gubookhub_app:subject' subject.slug %}">
+                        <span data-feather="book-open"></span>{{ subject.name }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <li class="nav-item">There are no subjects present.</li>
+    {% endif %}
+</ul>

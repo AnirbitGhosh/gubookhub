@@ -1,0 +1,19 @@
+h1 {
+    font-size: 45pt;
+    font-weight: bold;
+    color: black; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form-group{
+    font-size: 16pt;
+    font-weight: 300;
+    color: grey; 
+    font-family: sans-serif;
+}
+
+.input{
+    width: 100%;
+    border: 1px solid rgba(190, 14, 14, 0.555);
+    border-radius: 5px;
+}

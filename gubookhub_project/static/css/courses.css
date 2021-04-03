@@ -1,0 +1,49 @@
+h1 {
+    font-size: 45pt;
+    font-weight: bold;
+    color: black; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h5 {
+    font-size: 20pt;
+    font-weight: 300;
+    color: black; 
+    font-family: sans-serif;
+}
+
+h6 {
+    font-size: 12pt;
+    font-weight: 300;
+    color: black; 
+    font-family: sans-serif;
+}
+
+small{
+    font-size: 10pt;
+    font-weight: 300;
+    color: grey; 
+    font-family: sans-serif;
+    
+}
+
+.list-group-item{
+    font-size: 12pt;
+    font-weight: 300;
+    font-family: sans-serif;
+}
+
+.btn.btn-sm.btn-danger{
+    font-size: 12pt;
+    font-weight: 400;
+    color: white; 
+    font-family: serif;
+}
+
+.card.mb-2{
+    background-color: rgba(231, 76, 65, 0.486);
+}
+
+.list-group-item{
+    background-color: rgb(215, 238, 247);
+}

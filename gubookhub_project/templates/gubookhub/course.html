@@ -1,0 +1,77 @@
+{% extends 'gubookhub/base.html' %} 
+{% load staticfiles %} 
+
+{% block title_block %}
+    {% if course %}
+        {{ course.title }}
+    {% else %}
+        Unknown Course
+    {% endif %}
+{% endblock %}
+
+
+{% block style_block %}
+<link rel="stylesheet" href="{% static 'css/courses.css' %}" type="text/css" />
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+	<div class="container">
+        {% if course %}
+		<h1 class="jumbotron-heading">{{ course.title }}</h1>
+    </div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card mb-2">
+				<div class="card-body">
+                    {% if books %}
+                    <ul class="list-group">
+                    {% for book in books %}
+                    <li class="list-group-item">
+                        <h5>{{ book.title}} </h5>
+                        <h6>Author: {{ book.author}}</h6>
+                        <small>Posted by:<a href="{% url 'gubookhub_app:profile_page' book.user.username %}">{{ book.user}}</a></small><br />
+                        {% if book.url %}
+                            <a href="{{ book.url }}">Reference link</a><br />
+                        {% else %}
+                            <form method="POST" action="{% url 'gubookhub_app:search' %}">
+                                {% csrf_token %}
+                                <input type="text" name="query" value="{{ book.title }}" hidden>
+                                <input class="btn btn-sm btn-danger" type="submit" value="Google Books">
+                            </form>
+                        {% endif %}
+                        <br>
+                        <div>
+                            <strong id="{{ book.id }}-fav-count">{{ book.favorite_count }}</strong> user awards.
+                            {% if user.is_authenticated %}
+                                <button id="{{ book.id }}-fav-btn" data-bookid="{{ book.id }}" class="btn-fav-class btn btn-danger btn-sm" type="button">
+                                    <span data-feather="award"></span>
+                                    Favourite
+                                </button>
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% endfor %}
+                    </ul>
+				</div>
+			</div>
+            {% if user.is_authenticated %}
+                     <a href="{% url 'gubookhub_app:add_book' %}" class="btn btn-info btn-danger float-right" role="button">Add Book</a>
+            {% endif %} 
+		</div>
+        {% else %}
+            <strong>No books currently in this course.</strong>
+        {% endif %}
+    </div>
+</div>    
+
+<div class="empty-case">
+    {% else %}
+        <h4>The specified course does not exist. </h4>
+    {% endif %}
+</div>
+{% endblock %} 

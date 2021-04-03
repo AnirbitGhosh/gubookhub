@@ -1,0 +1,158 @@
+h1 {
+    font-size: 45pt;
+    font-weight: bold;
+    color: black; 
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h5 { 
+    font-size: 15pt;
+    font-weight: 300;
+    color: black; 
+    font-family: sans-serif;
+}
+
+.p-3.py-5{
+    font-size: 12pt;
+    font-weight: 100;
+    color: black; 
+    font-family: sans-serif;
+
+    padding-top: 1%;
+}
+
+
+
+
+body {
+    background-color: rgba(250, 207, 207, 0.842);
+    background-size: 1600px 1000px;
+    background-position: 7%;
+    background-attachment: fixed;
+  }
+  
+  
+  .text {
+    font-family: raleway;
+    font-size: 40px;
+    position: absolute center;
+    text-align: center;
+    padding-left: 0%;
+    color: #000;
+    margin-top: 43px;
+  }
+  
+  .text1 {
+    font-family: raleway;
+    font-size: 21px;
+    text-align: center;
+    margin-top: -20px;
+    color: #000;
+  }
+  
+  .active-image {
+    text-align: center;
+    width: 200px;
+    /* Container's dimensions */
+
+    -webkit-border-radius: 75%;
+    -moz-border-radius: 75%;
+    box-shadow: 0 0 0 3px rgb(0, 0, 0);
+    
+    height: 200px;
+    background-size: cover;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: -30px;
+    align-content: center;
+  }
+  
+  .no-active-image {
+    text-align: center;
+    width: 200px;
+    /* Container's dimensions */
+    
+    -webkit-border-radius: 75%;
+    -moz-border-radius: 75%;
+    box-shadow: 0 0 0 2px rgb(0, 0, 0);
+
+
+    height: 200px;
+    background-size: cover;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: -30px;
+    align-content: center;
+  }
+  
+  
+  .trick {
+    display: inline-block;
+    vertical-align: middle;
+    height: 150px;
+  }
+  
+  
+  
+  
+  
+  
+  .panel-group{
+    width:350px;
+    margin:auto;
+    /*margin:50px 400px 50px 400px;*/
+    max-width:100%;
+  }
+  
+  .panel-heading{
+    background-color:transparent !important;
+  }
+  
+  .title{
+    text-align: center;
+    background-color:transparent;
+    color:#000;
+    font-family:lato;
+    font-weight:800;
+    font-size:20px;
+    max-width:100%;
+  }
+
+  .panel-text{
+    color: black;
+    font-family:sans-serif;
+    font-weight:300;
+    font-size:20px;
+  }
+  
+  
+  #accordion{
+    background-color: transparent;
+    max-width:100%;
+    margin-bottom:200px;
+  }
+  
+
+  .btn-outline {
+    color: inherit;
+    transition: all 1.4s;
+    background-color: transparent;
+  }
+  /* button CSS */
+  
+  .btn-danger.btn-outline {
+    margin-top: 50px;
+    background-color: transparent;
+    color: #000;
+    border-color: black;
+    border-width: 3px;
+    border-radius: 25px;
+    padding:auto;
+    padding:10px 0px 10px 0px;
+    margin: 1px 5px 1px 0px;
+    width: 100%;
+    text-align:center;
+    font-family:serif;
+    font-weight: 400;
+    max-width:100%;
+  }

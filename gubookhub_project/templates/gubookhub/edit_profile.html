@@ -1,0 +1,70 @@
+{% extends 'gubookhub/base.html' %}
+{% load staticfiles %} 
+{% load static %}
+{% load widget_tweaks %} 
+
+{% block title_block %} 
+    Edit user profile
+{% endblock %} 
+
+{% block style_block %} 
+<link rel="stylesheet" href="{% static 'css/editprofile.css' %}" type="text/css"/>
+{% endblock %} 
+
+{% block body_block %} 
+<div class="jumbotron p-4">
+	<div class="container">
+		<h1 class="jumbotron-heading">Edit your personal details</h1>
+    </div>
+</div>
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <h5 class="jumbotron-heading align-items-center text-center">Your current profile details</h2>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-3"><img class="rounded-circle mt-5" src="">
+                {% if profile %}  
+                {% if profile.picture %} 
+                <span class="img-fluid"><img class="rounded-circle mt-5" src="{{ MEDIA_URL }}/{{ profile.picture }}" width="150" height="150"></span>
+                {% else %} 
+                <span class="img-fluid"><img class="rounded-circle mt-5" src="{% static 'images/default.jpg' %}" width="150" height="150"></span>
+                {% endif %} 
+                <span class="font-weight-light">Usename: {{ username }}</span>
+                <span class="text-black-50">Email: {{ email }}</span>
+                <span class="text-black-50">Level: {{ profile.level }}</span>
+                <span class="text-black-50">Subject: {{ profile.subject }}</span>
+
+                {% else %} 
+                <span class="img-fluid"><img class="rounded-circle mt-5" src="{% static 'images/default.jpg' %}" width="150" height="150"></span>
+                <span class="font-weight-light">Usename: {{ username }}</span><span class="text-black-50">Email: {{ email }}</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    {% if completed %} 
+                        <strong>Profile successfully updated!</strong>
+                        <a href="{% url 'gubookhub_app:index' %}">Return to Homepage.</a><br />
+
+                    {% else %} 
+                        <div class='form-group'>
+                        <form method="post" action="." enctype="multipart/form-data">
+                            {% csrf_token %} 
+                            <label class='label'>Subject</label>
+                            <p>{% render_field form.subject class='form-control' %}</p> 
+                            <label class='label'>Level</label>
+                            <p>{% render_field form.level class='form-control' %}</p> 
+                            <label class='label'>Picture</label>
+                            <p>{% render_field form.picture class='form-control' %}</p> 
+                            <input class="btn btn-lg btn-danger btn-block" type="submit" name="submit" value="Save" />
+                        </form>
+                        </div>
+                    {% endif %} 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,53 @@
+{% extends 'gubookhub/base.html' %} 
+{% load staticfiles %} 
+{% load template_tags %}
+
+{% block title_block %} 
+    {% if subject %}
+        {{ subject.name }}
+    {% else %}
+        Unknown Subject
+    {% endif %}
+{% endblock %}
+
+{% block style_block %}
+<link rel="stylesheet" href="{% static 'css/subjects.css' %}" type="text/css" />
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+	<div class="container">
+        {% if subject %}
+		<h1 class="jumbotron-heading">{{ subject.name }}</h1>
+    </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card mb-2">
+				<div class="card-body">
+                    <h2>Available Courses</h2>
+					<p class="card-text">
+						{% if courses %}
+					<ul class="list-group">
+						<input name="{{ subject.name }}" type="search" id="course-search-input" class="form-control ds-input"
+								placeholder="Search Courses by Course Code" />
+						<div id="course-listing">
+							{% get_courses_list subject.name %}
+						</div>
+						
+					</ul>
+					{% else %}
+					<strong>No courses currently in this subject.</strong>
+					{% endif %}
+					</p>
+                {% else %}
+                    The specified subject does not exist.
+                {% endif %}
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+{% endblock %}

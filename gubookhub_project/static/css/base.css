@@ -1,0 +1,27 @@
+/* nav bar buttons*/
+.navbar.navbar-expand-lg.py-5.navbar-dark.fixed-top.bg-danger.shadow-sm li a{
+    font-size: 16pt;
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* brand logo text and icon */
+.navbar-brand.p-4{
+    font-size: 15pt;
+    font-weight: bold;
+    font-family:fantasy;
+    color: whitesmoke;
+
+    width: 250px;
+    height: 95px;
+
+}
+
+/* footer p elements */
+footer { 
+    /* font-size: 20pt;
+    font-weight:100;
+    font-family: serif; */
+}
+

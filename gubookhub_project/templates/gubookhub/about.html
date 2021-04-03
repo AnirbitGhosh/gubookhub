@@ -1,0 +1,38 @@
+{% extends 'gubookhub/base.html' %} 
+{% load staticfiles %} 
+
+{% block title_block %} 
+    About GU Book Hub
+{% endblock %}
+
+{% block style_block %}
+<link rel="stylesheet" href="{% static 'css/about_page.css' %}" type="text/css" />
+{% endblock %}
+
+{% block body_block %}
+<div class="img-container">
+	<img id="uofg-background" src="{% static 'images/uofg_header.jpg' %}" alt="">
+	<h1 id="title" class="centered">About the Book Hub</h1>
+</div>
+<div class="message">
+	{{ aboutmessage }} <br />
+</div>
+
+<div class="message">
+	Create an account to contribute to the Hub yourself. You can add a book recommendation, include some basic details and even add an URL to help others locate the resource online. 
+	If the URL is not available, you can simply follow the link to go to the search page and search for the book online on Google Books. 
+	There are a list of registered subjects and their courses for which you can add textbooks to help fellow students access the best resources for their course. 
+	All contributors to the Hub are credited along with their contributions on each course page. 
+	To help you locate a particular course among the hundreds of subjects and courses, there are several ways to navigate around the Hub. You can use the sidebar to visit any 
+	subject of your choosing or use the Search bar on the Homepage to search for the desired subject. Once you have located your subject, you can use the search bar 
+	to search for your desired course using its unique course code.
+	You can access all the resources on the Hub without making an account, but you need to <a href="{% url 'registration_register' %}">Sign Up</a> if you want to 
+	contribute to the Hub yourself. <br />
+	You can choose your favourite books that you found the most helpful and give it an award! This will help other users identify the most useful resources for each course.
+	With each uploaded resource, there is a link to the contributor's profile, which will allow you to see what else they have uploaded, which books they have marked as 
+	their favourites, and even find basic details to help you get in touch with them. 
+	
+</div>
+<br />
+<strong class="sub-message">This webapp has been put together by group 14F</strong> <br />
+{% endblock %}

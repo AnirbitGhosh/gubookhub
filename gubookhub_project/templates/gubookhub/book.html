@@ -1,0 +1,40 @@
+{% extends 'gubookhub/base.html' %} 
+{% load staticfiles %} 
+
+{% block title_block %} 
+    {% if subject %}
+        {% if course %}
+            {% if book %}
+                {{ book.title }}
+            {% else %}
+                Unknown Book
+            {% endif %}
+        {% else %}
+            Unknown Course
+        {% endif %}
+    {% else %}
+        Unknown Subject
+    {% endif %}
+{% endblock %}
+
+{% block body_block %} 
+    <div>
+    {% if subject %}
+        <h1>{{ subject.name }}</h1>
+        {% if course %}
+            <h2>{{ course.name }}</h2>
+            {% if books %}
+            <ul>
+                {for book in books %}
+                <li><a href="{{ book.url }}">{{ book.title }}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            No books currently in this course.
+        {% endif %}
+
+    {% else %}
+        The specified page does not exist.
+    {% endif %}
+    </div>
+{% endblock %} 
